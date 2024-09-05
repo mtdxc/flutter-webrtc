@@ -136,8 +136,7 @@ class GetUserMediaImpl {
         ScreenRequestPermissionsFragment fragment = new ScreenRequestPermissionsFragment();
         fragment.setArguments(args);
 
-        FragmentTransaction transaction =
-                activity
+        FragmentTransaction transaction = activity
                         .getFragmentManager()
                         .beginTransaction()
                         .add(fragment, fragment.getClass().getName());
@@ -183,9 +182,7 @@ class GetUserMediaImpl {
 
         public void requestStart(Activity activity, int requestCode) {
             if (android.os.Build.VERSION.SDK_INT < minAPILevel) {
-                Log.w(
-                        TAG,
-                        "Can't run requestStart() due to a low API level. API level 21 or higher is required.");
+                Log.w(TAG, "Can't run requestStart() due to a low API level. API level 21 or higher is required.");
                 return;
             } else {
                 MediaProjectionManager mediaProjectionManager =

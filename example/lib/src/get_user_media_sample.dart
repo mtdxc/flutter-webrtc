@@ -57,8 +57,8 @@ class _GetUserMediaSampleState extends State<GetUserMediaSample> {
       'audio': false,
       'video': {
         'mandatory': {
-          'minWidth':
-              '640', // Provide your own width, height and frame rate here
+          // Provide your own width, height and frame rate here
+          'minWidth': '640', 
           'minHeight': '480',
           'minFrameRate': '30',
         },

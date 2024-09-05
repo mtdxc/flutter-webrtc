@@ -23,21 +23,17 @@ void FlutterDataChannel::CreateDataChannel(
     std::unique_ptr<MethodResultProxy> result) {
   RTCDataChannelInit init;
   init.id = GetValue<int>(dataChannelDict.find(EncodableValue("id"))->second);
-  init.ordered =
-      GetValue<bool>(dataChannelDict.find(EncodableValue("ordered"))->second);
-
-  if (dataChannelDict.find(EncodableValue("maxRetransmits")) !=
-      dataChannelDict.end()) {
-    init.maxRetransmits = GetValue<int>(
-        dataChannelDict.find(EncodableValue("maxRetransmits"))->second);
+  init.ordered = GetValue<bool>(dataChannelDict.find(EncodableValue("ordered"))->second);
+  
+  auto it = dataChannelDict.find(EncodableValue("maxRetransmits"));
+  if (it != dataChannelDict.end()) {
+    init.maxRetransmits = GetValue<int>(it->second);
   }
 
   std::string protocol = "sctp";
-
-  if (dataChannelDict.find(EncodableValue("protocol")) ==
-      dataChannelDict.end()) {
-    protocol = GetValue<std::string>(
-        dataChannelDict.find(EncodableValue("protocol"))->second);
+  it = dataChannelDict.find(EncodableValue("protocol"));
+  if (it != dataChannelDict.end()) {
+    protocol = GetValue<std::string>(it->second);
   }
 
   init.protocol = protocol;

@@ -61,7 +61,7 @@ class _GetDisplayMediaSampleState extends State<GetDisplayMediaSample> {
               const androidConfig = FlutterBackgroundAndroidConfig(
                 notificationTitle: 'Screen Sharing',
                 notificationText: 'LiveKit Example is sharing the screen.',
-                notificationImportance: AndroidNotificationImportance.normal,
+                notificationImportance: AndroidNotificationImportance.Default,
                 notificationIcon: AndroidResource(
                     name: 'livekit_ic_launcher', defType: 'mipmap'),
               );

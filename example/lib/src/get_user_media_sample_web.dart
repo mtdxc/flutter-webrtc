@@ -20,11 +20,11 @@ class _GetUserMediaSampleState extends State<GetUserMediaSample> {
   MediaStream? _localStream;
   final _localRenderer = RTCVideoRenderer();
   bool _inCalling = false;
+
   MediaRecorder? _mediaRecorder;
+  bool get _isRec => _mediaRecorder != null;
 
   List<MediaDeviceInfo>? _cameras;
-
-  bool get _isRec => _mediaRecorder != null;
   List<dynamic>? cameras;
 
   @override
@@ -58,8 +58,8 @@ class _GetUserMediaSampleState extends State<GetUserMediaSample> {
       'audio': true,
       'video': {
         'mandatory': {
-          'minWidth':
-              '1280', // Provide your own width, height and frame rate here
+          // Provide your own width, height and frame rate here
+          'minWidth': '1280', 
           'minHeight': '720',
           'minFrameRate': '30',
         },

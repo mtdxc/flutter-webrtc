@@ -22,8 +22,7 @@ class WebRTC {
 
   static bool get platformIsWeb => false;
 
-  static Future<T?> invokeMethod<T, P>(String methodName,
-      [dynamic param]) async {
+  static Future<T?> invokeMethod<T, P>(String methodName, [dynamic param]) async {
     await initialize();
 
     return _channel.invokeMethod<T>(
